@@ -1,4 +1,4 @@
-import LoginPage from "../../pages/LoginPage";
+import LoginPage from "../../pages/loginPage";
 import mainPage from "../../pages/mainPage";
 
 describe("SwagLabsLoginTest", () => {

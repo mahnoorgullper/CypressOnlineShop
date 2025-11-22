@@ -1,15 +1,12 @@
-
 import "@testing-library/cypress/add-commands";
 import { USERS } from "../support/data/users";
 
-class LoginPage {
+class loginPage {
   elements = {
     usernameInput: () => cy.get('[data-test="username"]'),
     passwordInput: () => cy.get('[data-test="password"]'),
     loginBtn: () => cy.get('[data-test="login-button"]'),
     error: () => cy.get('[data-test="error"]'),
-  
-  
   };
 
   enterUsername(username) {
@@ -34,5 +31,5 @@ class LoginPage {
     this.login(USERS.userCreds.userName, USERS.userCreds.password);
   }
 }
-  
-export default LoginPage;
+
+export default loginPage;

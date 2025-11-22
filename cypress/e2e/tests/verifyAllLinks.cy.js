@@ -1,5 +1,5 @@
 import "@testing-library/cypress/add-commands";
-import LoginPage from "../../pages/LoginPage";
+import LoginPage from "../../pages/loginPage";
 import mainPage from "../../pages/mainPage";
 
 const loginObj = new LoginPage();

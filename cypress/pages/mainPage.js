@@ -32,7 +32,7 @@ class mainPage {
     sauceLabsLink: () => cy.findByRole("link", { name: "Saucelabs" }),
     logoutLink: () => cy.findByRole("link", { name: "Logout" }),
   };
-   clickLogout() {
+  clickLogout() {
     this.elements.openMenuButton().click();
     this.elements.logoutLink().click();
   }
