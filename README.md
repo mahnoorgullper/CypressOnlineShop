@@ -1,7 +1,7 @@
 # Cypress Project -Online Shopping Site
 
 ## Description
-This project contains end-to-end tests written using Cypress for [Sauce Demo](https://qa-challenge.codesubmit.io/). 
+This project contains end-to-end tests written using Cypress for [Swag Labs](https://qa-challenge.codesubmit.io/). 
 
 ## System Requirements
 Before running this project, ensure that your system meets the following requirements:
