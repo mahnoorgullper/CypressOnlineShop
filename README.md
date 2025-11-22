@@ -16,7 +16,7 @@ Before running this project, ensure that your system meets the following require
     ```
 2. Navigate to the project directory
     ```bash
-    cd SauceDemo
+    cd CypressOnlineShop
     ```
 3. Run command to install dependencies:
     ```bash
@@ -35,7 +35,6 @@ Before running this project, ensure that your system meets the following require
    a. Click on a spec file to run the associated test suite.
 
 ## Folder Structure
-- **cypress/**: Contains Cypress test files and configuration.
     - **e2e/**: Contains Cypress spec files containing tests
     - **pages/**: Page object model class
     - **support/data/users**: user credentials.
