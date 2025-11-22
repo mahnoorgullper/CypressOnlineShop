@@ -1,5 +1,6 @@
 
 import "@testing-library/cypress/add-commands";
+import { USERS } from "../support/data/users";
 
 class LoginPage {
   elements = {
@@ -23,6 +24,15 @@ class LoginPage {
     this.elements.loginBtn().click();
   }
 
-}
+  login(username, password) {
+    this.enterUsername(username);
+    this.enterPassword(password);
+    this.clickLogin();
+  }
 
+  loginAsStandard() {
+    this.login(USERS.userCreds.userName, USERS.userCreds.password);
+  }
+}
+  
 export default LoginPage;

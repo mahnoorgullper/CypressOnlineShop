@@ -13,10 +13,9 @@ describe("Shopping app Login and Logout feature test cases", () => {
   });
 
   it("Verify login with standard user", () => {
-  loginObj.enterUsername(USERS.userCreds.userName);
-  loginObj.enterPassword(USERS.userCreds.password);
-  loginObj.clickLogin();
-  
+
+    loginObj.loginAsStandard();
+
     mainPageObj.elements.cart().should("be.visible");
     mainPageObj.clickLogout();
     loginObj.elements.usernameInput().should("be.visible");

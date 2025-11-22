@@ -1,7 +1,5 @@
-
-import LoginPage from "../../pages/LoginPage"
+import LoginPage from "../../pages/LoginPage";
 import mainPage from "../../pages/mainPage";
-
 
 describe("SwagLabsLoginTest", () => {
   const loginObj = new LoginPage();
@@ -13,25 +11,22 @@ describe("SwagLabsLoginTest", () => {
   });
 
   it("Verify reset functionality is removing items from cart", () => {
-    loginObj.enterUsername("standard_user");
-    loginObj.enterPassword("secret_sauce");
-    loginObj.clickLogin();
+    loginObj.loginAsStandard();
     mainPageObj.elements.addBackPack().click();
     mainPageObj.elements.cart().contains("a", "1");
     mainPageObj.elements.openMenuButton().click();
     mainPageObj.elements.resetButton().click();
     //after reseting cart item count should not appear
     mainPageObj.elements.cart().should("be.visible");
-  })
+  });
 
   it("Verify items are added and successfully removed from cart, and cart count has been updated", () => {
-    loginObj.enterUsername("standard_user");
-    loginObj.enterPassword("secret_sauce");
-    loginObj.clickLogin();
+    loginObj.loginAsStandard();
+
     mainPageObj.elements.addBackPack().click();
     mainPageObj.elements.addBikeLight().click();
     mainPageObj.elements.addBoltTShirt().click();
-    //item count three should appear in cart 
+    //item count three should appear in cart
     mainPageObj.elements.cart().contains("a", "3");
     mainPageObj.elements.removeBackPack().click();
     mainPageObj.elements.removeBikeLight().click();
@@ -40,9 +35,8 @@ describe("SwagLabsLoginTest", () => {
   });
 
   it("Verify all cart items have been added and available inside cart", () => {
-    loginObj.enterUsername("standard_user");
-    loginObj.enterPassword("secret_sauce");
-    loginObj.clickLogin();
+    loginObj.loginAsStandard();
+
     mainPageObj.elements.addBackPack().click();
     mainPageObj.elements.addBikeLight().click();
     mainPageObj.elements.addBoltTShirt().click();
@@ -53,14 +47,13 @@ describe("SwagLabsLoginTest", () => {
   });
 
   it("Verify payment amount is correctly added for selected cart items ", () => {
-    loginObj.enterUsername("standard_user");
-    loginObj.enterPassword("secret_sauce");
-    loginObj.clickLogin();
+    loginObj.loginAsStandard();
+
     mainPageObj.elements.addBackPack().click();
     mainPageObj.elements.addBikeLight().click();
     mainPageObj.elements.addBoltTShirt().click();
     mainPageObj.elements.cart().click();
-    
+
     cy.get("#cart_contents_container").within(() => {
       cy.get(".cart_item").each(($item, index, $items) => {
         // get the amount of each item
@@ -90,7 +83,7 @@ describe("SwagLabsLoginTest", () => {
     });
     cy.wrap(prices).then((pricesArray) => {
       Promise.all(pricesArray).then((pricesArray) => {
-        //calculate total price 
+        //calculate total price
         const totalPrice = pricesArray.reduce((acc, curr) => acc + curr, 0);
         cy.log("Total Price:", totalPrice);
         mainPageObj.elements.checkOutButton().click();
@@ -106,7 +99,7 @@ describe("SwagLabsLoginTest", () => {
               totalPriceText.replace(/[^\d.]/g, "")
             );
             cy.log("Total Price:", numericTotalPriceText);
-            //check total price that is calculated by above method is equal to what has been displayed in total summary of price 
+            //check total price that is calculated by above method is equal to what has been displayed in total summary of price
             expect(numericTotalPriceText).to.equal(totalPrice);
           });
       });
