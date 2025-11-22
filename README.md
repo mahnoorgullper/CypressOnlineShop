@@ -12,7 +12,7 @@ Before running this project, ensure that your system meets the following require
 ## Installation
 1. Clone this repository:
     ```bash
-    git clone https://github.com/mahnoorgullper/SauceDemo.git
+    git clone https://github.com/mahnoorgullper/CypressOnlineShop.git
     ```
 2. Navigate to the project directory
     ```bash
